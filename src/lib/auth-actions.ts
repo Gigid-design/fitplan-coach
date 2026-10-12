@@ -11,6 +11,8 @@ export async function signIn(email: string, password: string) {
 }
 export function authError(error: unknown) {
   const code = error && typeof error === 'object' && 'code' in error ? error.code : '';
+  const message = error instanceof Error ? error.message : '';
+  if (code === 'email_address_invalid' || message.includes('This email address is not allowed')) return '請使用可收信的電子郵件地址，不可使用範例信箱。';
   if (code === 'invalid_credentials') return '電子郵件或密碼不正確，請再試一次。';
   if (code === 'email_not_confirmed') return '請先點擊電子郵件中的確認連結，再登入。';
   if (code === 'user_already_exists') return '這個電子郵件已註冊，請前往登入。';

@@ -27,14 +27,14 @@
   --radius-lg: 8px;
 }
 :root {
-  --background: oklch(0.98 0.01 120);
-  --foreground: oklch(0.23 0.03 185);
-  --primary: oklch(0.23 0.03 185);
+  --background: oklch(0.9786746 0.0094515 119.57461);
+  --foreground: oklch(0.2285701 0.0292049 187.7425);
+  --primary: oklch(0.2285701 0.0292049 187.7425);
   --card: oklch(1 0 0);
-  --secondary: oklch(0.395 0.043 174);
+  --secondary: oklch(0.3937281 0.0447228 175.95495);
   --muted: oklch(0.945 0.014 120);
   --muted-foreground: oklch(0.49 0.025 166);
-  --accent: oklch(0.943 0.159 125);
+  --accent: oklch(0.946868 0.1550718 123.92673);
   --border: oklch(0.885 0.016 137);
   --destructive: oklch(0.53 0.17 28);
   --shadow-soft: 0 12px 40px oklch(0.23 0.03 185 / 0.04);

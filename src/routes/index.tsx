@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowRight, ArrowDown, Check, ClipboardCheck, CalendarDays, Timer, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowDown, Check, ClipboardCheck, CalendarDays, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Brand, Footer } from '@/components/fitplan/Brand';
 import { useFitPlanAuth } from '@/components/fitplan/AuthContext';
