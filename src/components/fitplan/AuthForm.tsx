@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Link, useNavigate } from '@tanstack/react-router';
+import { Link, useNavigate } from 'react-router';
 import { ArrowRight, Eye, EyeOff, MailCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { register, signIn, authError } from '@/lib/auth-actions';
@@ -15,8 +15,8 @@ export function AuthForm({ mode }: { mode: 'signup' | 'login' }) {
  async function submit(event: FormEvent<HTMLFormElement>) {
   event.preventDefault(); setBusy(true); setError('');
   try {
-   if (signup) { const result = await register(email.trim(), password, window.location.origin); if (result.confirmed) await navigate({ to: '/app' }); else setSent(true); }
-   else { const destination = await signIn(email.trim(), password); await navigate({ to: destination }); }
+   if (signup) { const result = await register(email.trim(), password, window.location.origin); if (result.confirmed) await navigate('/app'); else setSent(true); }
+   else { const destination = await signIn(email.trim(), password); await navigate(destination); }
   } catch (err) { setError(authError(err)); } finally { setBusy(false); }
  }
  return <><header className="site-header page-width"><Brand /><Link to="/" className="text-sm text-secondary">回到首頁 <span aria-hidden="true">↗</span></Link></header>

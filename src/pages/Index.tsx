@@ -1,16 +1,18 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { Link } from 'react-router';
 import { ArrowRight, ArrowDown, Check, ClipboardCheck, CalendarDays, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Brand, Footer } from '@/components/fitplan/Brand';
 import { useFitPlanAuth } from '@/components/fitplan/AuthContext';
 import { pageHead, coachPlan } from '@/lib/fitplan';
-export const Route = createFileRoute('/')({ head: () => pageHead('教練的排課好幫手', '填好學員資料，一分鐘拿到四週課表。你看過按送出，每週一自動寄給學員。不用再用 Excel 排到半夜。'), component: Index });
+import { usePageHead } from '@/lib/use-page-head';
+const head = pageHead('教練的排課好幫手', '填好學員資料，一分鐘拿到四週課表。你看過按送出，每週一自動寄給學員。不用再用 Excel 排到半夜。');
 const features = [
  { icon: Timer, title: '一分鐘出四週課表', text: '填身高、體重、目標、每週幾次、受傷限制，課表就出來' },
  { icon: ClipboardCheck, title: '你看過才寄', text: '課表先給你改，按送出才會寄給學員' },
  { icon: CalendarDays, title: '每週一自動寄', text: '本週課表自動寄到學員信箱，你不用追' },
 ];
-function Index() {
+export function Index() {
+ usePageHead(head);
  const { user } = useFitPlanAuth();
  return <><header className="site-header page-width"><Brand/><nav className="header-nav" aria-label="主選單"><a href="#features">功能</a><a href="#pricing">價格</a><Link to={user ? '/app' : '/login'}>{user ? '學員頁' : '登入'}</Link><Button asChild className="desktop-start h-10 px-5"><Link to="/signup">免費開始<ArrowRight/></Link></Button></nav></header>
  <main><section className="hero page-width fade-in"><div className="eyebrow"><span className="eyebrow-dot"/>給教練的排課好幫手</div><h1>填好學員資料，<br/>一分鐘拿到<span className="highlight">四週課表</span></h1><p className="hero-copy">你看過按送出，每週一自動寄給學員。<br/>不用再用 Excel 排到半夜。</p><div className="hero-actions"><Button asChild className="h-12 px-7 text-sm"><Link to="/signup">免費開始<ArrowRight/></Link></Button><a href="#features" className="flex items-center gap-2 text-sm text-secondary">看它怎麼做<ArrowDown size={15}/></a></div><p className="hero-note"><Check size={14}/>註冊免費，開始寄課表時再付。</p></section>
